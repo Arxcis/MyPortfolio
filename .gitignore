@@ -1,0 +1,17 @@
+*
+!*.swift
+!*.go
+!*.cs
+!*.cpp
+!*.pl
+!*.rs
+!*.py
+!*.php
+!*.m
+!*.js
+!*.c
+!*.java
+!*.md
+!.gitignore
+
+!*/
