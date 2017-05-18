@@ -1,7 +1,8 @@
 ### My Portfolio
 As a generalist, my focus is to touch as many aspects of computer programming as possible, as early as possible. Breadth before depth is my main operating mode, and what I enjoy the most. Here is a rough map of what I have covered so far.
 
-[My Code](#MyCode) </br>
+[My Code snippets](#MyCode) </br>
+[My Projects](#MyProjects) </br>
 [My Languages](#MyLanguages)</br>
 [My Platforms](#MyPlatforms)</br>
 [My Tools](#MyTools)</br>
@@ -13,6 +14,15 @@ As a generalist, my focus is to touch as many aspects of computer programming as
 <a id="MyCode"></a>
 ### My Code
 This repository has a collection of small projects that are deemed too small to have their own repository. Most projects here are of the experimental/learning-new-stuff kind, and are therefore not to be used directly for serious work.
+
+
+<a id="MyCode"></a>
+### My Projects
+| Description | Thumbnail | Keywords | Time period |
+| ----------- | ----------- | ----------- | ----------- |
+|[Kompendium - Mathamatics for Programming](https://github.com/Arxcis/ProgMatteKompendium) |![X](img/kompendium_example.png)|Documentation, Markdown, Math| 2017.02 -> |
+|||||
+||||||
 
 
 <a id="MyLanguages"></a>
@@ -50,6 +60,7 @@ Platforms I am able to develop for:
 - Windows
 - macOS
 - Linux
+- Web
 - iOS
 - Android
 
