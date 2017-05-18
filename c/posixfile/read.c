@@ -1,6 +1,6 @@
 
-#include <fcntl.h>
-#include <unistd.h>  // POSIX HEADER
+#include <fcntl.h>  // open()
+#include <unistd.h>  // read(), close()
 
 #define BUFFER_MAX 100
 
