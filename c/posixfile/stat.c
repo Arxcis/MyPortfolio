@@ -1,5 +1,6 @@
 
 #include <sys/stat.h> // stat(), struct stat
+#include <stdio.h>
 
 int main() {
     struct stat buffer;
