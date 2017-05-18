@@ -20,8 +20,8 @@ This repository has a collection of small projects that are deemed too small to 
 ### My Projects
 | Description | Thumbnail | Keywords | Time period |
 | ----------- | ----------- | ----------- | ----------- |
-|[Kompendium - Mathamatics for Programming](https://github.com/Arxcis/ProgMatteKompendium) |![](thumbnail/kompendium.png)|Documentation, Markdown, Math| 2017.02 -> |
-| JET - Template Library for C++ |![](thumbnail/jetlib.png)| C++, Graphics, Math | 2017.01 ->|
+|[Kompendium - Mathamatics for Programming](https://github.com/Arxcis/ProgMatteKompendium) |![](thumbnail/kompendium.png)|Documentation, Markdown, Math| 2017.02 - |
+| [JET - Template Library for C++](https://github.com/Arxcis/jetlib)|![](thumbnail/jetlib.png)| C++, Graphics, Math | 2017.01 -|
 ||||||
 
 
