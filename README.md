@@ -70,7 +70,7 @@ Platforms I am able to develop for:
 <a id="MyTools"></a>
 ### My Tools
 Tools i am familiar with:
-- Git
+- Git, Github, Bitbucket
 - Unity 3D
 - Sublime, Atom, Notepad++, Vim
 - Xcode
@@ -101,17 +101,19 @@ Books which made me a better developer:
 <a id="MyCourses"></a>
 ### My Courses
 Current courses at NTNU
-- Object Oriented Programming in C++ - 2017
-- Mathematics for Programming - 2017
-- Systems development - 2017
-- Operating Systems - 2017
+</br> **Spring 2017**
+- [IMT1082 - Object-Oriented Programming](https://www.ntnu.edu/studies/courses/IMT1082#tab=omEmnet)
+- [REA1121 - Mathematics for Programming](http://www.ntnu.edu/studies/courses/REA1121#tab=omEmnet)
+- [IMT2243 - Software Engineering](http://www.ntnu.edu/studies/courses/IMT2243#tab=omEmnet)
+- [IMT2282 - Operating Systems](https://www.ntnu.edu/studies/courses/IMT2282#tab=omEmnet)
 
 
 Finished courses at NTNU
-- Elementary Programming in C++ - 2016
-- Mathematics for IT - 2016
-- Experience Design - 2016
-- Data modeling and Database design - 2016
+</br> **Autumn 2016**
+- [IMT1031 - Fundamental Programming](http://www.ntnu.edu/studies/courses/IMT1031#tab=omEmnet)
+- [REA1101 - Mathematics for Computer Science ](http://www.ntnu.edu/studies/courses/REA1101#tab=omEmnet)
+- [IMT1362 - Experience Design](https://www.ntnu.edu/studies/courses/IMT1362#tab=omEmnet)
+- [IMT 2571 - Data Modelling and Database Systems](http://www.ntnu.edu/studies/courses/IMT2571#tab=omEmnet)
 
 
 <a id="MyPeople"></a>
