@@ -1,13 +1,13 @@
-#MyPortfolio
+### MyPortfolio
 As a generalist, my focus is to touch as many aspects of computer programming as possible, as early as possible. Breadth before depth is my main operating mode, and what I enjoy the most.
 
 
-#MyCode
+### MyCode
 This repository has a collection of small projects that are deemed too small to have their own repository. Most projects here are of the experimental/learning-new-stuff kind, and are therefore not to be used directly for serious work.
 
 
-#MyLanguages
-Here is a list of all the languages of which I have gained a basic understanding:
+### MyLanguages
+Languages of which I have gained a basic understanding:
 - C
 - C++
 - C#
@@ -31,8 +31,8 @@ Here is a list of all the languages of which I have gained a basic understanding
 - Jai (Not released)
 
 
-#MyPlatforms
-These are platforms I am able to develop for:
+### MyPlatforms
+Platforms I am able to develop for:
 - Windows
 - macOS
 - Linux
@@ -40,7 +40,7 @@ These are platforms I am able to develop for:
 - Android
 
 
-#MyTools
+### MyTools
 Tools i am familiar with:
 - Git
 - Unity
@@ -55,16 +55,16 @@ Tools i am familiar with:
 - Photoshop
 
 
-#MyBooks
-Books I have delved into, relevant to programming:
-- Modern Operating Systems - Andrew S. Tanenbaum (2017)
-- Game Programming Patterns - (2017)
-- C#
-- The Art of Game Design - Jesse Schell (2016)
+### MyBooks
+Books that have made me a better developer:
+- Modern Operating Systems - Andrew S. Tanenbaum - 2017
+- Game Programming Patterns by Robert Nystrøm - 2017
+- C# in depth by Jon Skeet - 2016
+- The Art of Game Design by Jesse Schell - 2016
 
 
-#MyCourses
-Finished courses in higher education:
+### MyCourses
+Finished courses at NTNU:
 - Object Oriented Programming in C++ - 2017
 - Mathematics for Programming - 2017
 - Systems development - 2017
