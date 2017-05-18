@@ -13,6 +13,6 @@
 !*.md
 !*.pde
 !.gitignore
-!img/*.png
+!thumbnail/*.png
 
 !*/
