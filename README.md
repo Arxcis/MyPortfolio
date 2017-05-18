@@ -15,28 +15,31 @@ This repository has a collection of small projects that are deemed too small to 
 
 
 ### My Languages
-Languages of which I have gained a basic understanding:
-- C
-- C++
-- C#
-- GO
-- Rust
-- Javascript
-- XML
-- HTML
-- CSS
-- PHP
-- Java
-- Assembly languages
-- Python
-- Markdown
-- LaTex
-- PowerShell
-- Bash
-- Prolog
-- SQL
-- JSON
-- Jai (To be released)
+Overview of languages I have studied:
+
+|Language|Can read|Can write|Used in project|
+|--------|--------|---------|-----------------|
+| C    | X | X |   |
+| C++  | X | X | X |
+| C#   | X | X | X |
+| Java | X | X |   |
+| Go   | X | X |   |
+| Rust | X |   |   |
+| Assembly Languages | X |  |  |
+| Javascript | X | X | X |
+| XML  | X | X |   |
+| JSON | X | X |   |
+| HTML | X | X | X |
+| CSS  | X | X | X |
+| PHP  | X | X | X |
+| Python   | X | X | X |
+| Bash     | X | X |   |
+| PowerShell | X | X |  |
+| Prolog   | X |   |   |
+| Jai      | X |   |   |
+| SQL      | X | X | X |
+| Markdown | X | X | X |
+| LaTex    | X | X |   ||
 
 
 ### My Platforms
