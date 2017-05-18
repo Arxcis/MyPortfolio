@@ -12,6 +12,7 @@
 !*.c
 !*.java
 !*.md
+!*.pde
 !.gitignore
 
 !*/
