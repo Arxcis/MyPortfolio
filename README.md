@@ -74,10 +74,15 @@ Tools i am familiar with:
 <a id="MyBooks"></a>
 ### My Books
 Books which made me a better developer:
-- Modern Operating Systems - Andrew S. Tanenbaum - 2017
-- Game Programming Patterns by Robert Nystrøm - 2017
-- C# in depth by Jon Skeet - 2017
-- The Art of Game Design by Jesse Schell - 2016
+
+|Title|Author|First read|
+|----|----|----|
+|Modern Operating Systems|Andrew S. Tanenbaum|2017|
+|Game Programming Patterns|Robert Nystrøm|2017|
+|C# in depth (3rd) |Jon Skeet|2017|
+|User Story Mapping| Jeff Patton | 2017|
+|Datastructures + Algorithms = Programs| Niklaus Wirth | 2016|
+|The Art of Game Design | Jesse Schell | 2016 |
 
 
 <a id="MyCourses"></a>
