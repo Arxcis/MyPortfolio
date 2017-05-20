@@ -12,7 +12,8 @@ typedef struct {
 
 void initTerminalApp(App* app);
 void closeTerminalApp(App* app);
-int getch(unsigned char* ch) { return read(0, ch, sizeof(*ch)); }
+void handleInput(unsigned char* ch);
+int  getch(unsigned char* ch);
 
 //
 // @function main
@@ -20,8 +21,7 @@ int getch(unsigned char* ch) { return read(0, ch, sizeof(*ch)); }
 // @doc http://stackoverflow.com/questions/448944/c-non-blocking-keyboard-input
 //
 //int main(int argc, char *argv[])
-int main(void)
-{
+int main(void) {
     App app;
     initTerminalApp(&app);
 
@@ -33,40 +33,46 @@ int main(void)
         int retval;
         while ((retval = !select(1, &app.fileDescriptorSet, NULL, NULL, NULL)));   // @doc select() - http://man7.org/linux/man-pages/man2/select.2.html;
 
-        if (retval == -1) { perror("select()...");}
-        ssize_t count;
-        unsigned char ch;
-        count = getch(&ch);
-
-        printf("%c", ch); /* consume the character */
-
-        if(ch == 'q') break;
-
-
-        // @doc ESCAPE SEQUENCES arrow codes - http://stackoverflow.com/questions/10463201/getch-and-arrow-codes
-        else if (ch == '\027') {
-            getch(&ch); // skip the [
-            switch(getch(&ch)) { // the real value
-                case 'A':
-                    printf("ESC[1A"); // code for arrow up
-
-                    break;
-                case 'B':
-                    printf("ESC[1B"); // code for arrow down
-
-                    break;
-                case 'C':
-                    printf("ESC[1C"); // code for arrow right
-
-                    break;
-                case 'D':
-                    printf("ESC[1D"); // code for arrow left
-                    break;
-                }
+        if (retval == -1) {
+            perror("select()...");
+        }
+        // read input
+        {
+            ssize_t count;
+            unsigned char ch;
+            count = getch(&ch);
+            printf("%c", ch); /* consume the character */
+            if(ch == 'q') break;
+            handleInput(&ch);
         }
     }
     closeTerminalApp(&app);
     return 0;
+}
+
+void handleInput(unsigned char* ch) {
+    // @doc ESCAPE SEQUENCES arrow codes - http://stackoverflow.com/questions/10463201/getch-and-arrow-codes
+    if (*ch == '\027') {
+        getch(ch); // skip the [
+        switch(getch(ch)) { // the real value
+            case 'A':
+                printf("ESC[1A"); // code for arrow up
+
+                break;
+            case 'B':
+                printf("ESC[1B"); // code for arrow down
+
+                break;
+            case 'C':
+                printf("ESC[1C"); // code for arrow right
+
+                break;
+            case 'D':
+                printf("ESC[1D"); // code for arrow left
+                break;
+            }
+
+    }
 }
 
 
@@ -103,4 +109,8 @@ void closeTerminalApp(App* app) {
     tcsetattr(0, TCSANOW, &app->originalTermios);
     setlinebuf(stdout);
     printf("\033c");
+}
+
+int getch(unsigned char* ch) {
+    return read(0, ch, sizeof(*ch));
 }
