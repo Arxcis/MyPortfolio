@@ -58,9 +58,9 @@ auto sort = [](auto collection, auto lambda) {
     return collection;
 };
 
-auto map = [](auto collection, auto lambda) {
+auto map = [](auto& collection, auto lambda) {
     for(size_t i = 0; i < collection.count; ++i) {
-        collection.data[i] = lambda(collection.data[i]);
+        lambda(collection.data[i]);
     }
     return collection;
 };

@@ -23,15 +23,17 @@ const int MAXDATOER      = 200;
 
 
 struct Oppgave {
-     char* beskrivelse;
+    char* beskrivelse;
      int   beregnetTid;
      bool  ferdig = false;
+     ~Oppgave(){ delete[] beskrivelse; }
 };
 
 struct Dato {
     unsigned int      dato;                 //dato (ÅÅÅÅMMDD)
     char*             ekstrahjelpNavn;
     Collection<Oppgave, MAXOPPGAVER> oppgaver;
+    ~Dato(){ delete[] ekstrahjelpNavn; }
 };
 
 using DatoCollection = Collection<Dato, MAXDATOER>;
@@ -52,7 +54,6 @@ enum Meny : char {
 
 int main() {
     char           valg;
-    unsigned int   lovligDato;
     DatoCollection datoene;
     //lesFraFil();
 
@@ -62,81 +63,86 @@ int main() {
     while (valg != QUIT)  {
     switch (valg)  {
 
-        case NY_DATO:{
-            lovligDato = les("Dato: ", MINOPPGAVEDATO, MAXOPPGAVEDATO);
+    case NY_DATO:{
+        unsigned int lovligDato = les("Dato: ", MINOPPGAVEDATO, MAXOPPGAVEDATO);
 
-            findThenElse(datoene,
-                [lovligDato](const auto& x) { return x.dato == lovligDato; },
 
-                [](auto&) { std::cout << "Dato finnes allerede...\n"; },
+        findThenElse(datoene,
+            [lovligDato](const auto& x) { return x.dato == lovligDato; },
 
-                [&datoene, lovligDato]() {
-                    add(datoene, Dato{ lovligDato, lesString("Navn"), {} });
-                }
-            );
-        } break;
+            [](auto&) { std::cout << "Dato finnes allerede...\n"; },
 
-        case SKRIV_DATO:{
-            if(datoene.count == 0) {
-                std::cout << "Det finnes ingen datoer...\n";
-            } else { foreach(datoene, [](const auto& x){ displayDato(x); }); }
-        } break;
+            [&datoene, lovligDato]() {
+                add(datoene, Dato{ lovligDato, lesString("Navn"), {} });
+            }
+        );
+    } break;
 
-        case NY_OPPGAVE: {
-            lovligDato = les("Dato: ", MINOPPGAVEDATO, MAXOPPGAVEDATO);
+    case SKRIV_DATO:{
+        if(datoene.count == 0) {
+            std::cout << "Det finnes ingen datoer...\n";
+        } else { foreach(datoene, [](const auto& x){ displayDato(x); }); }
+    } break;
 
-            findThenElse(datoene,
-                [lovligDato](const auto& x) { return x.dato == lovligDato; },
+    case NY_OPPGAVE: {
+        unsigned int lovligDato = les("Dato: ", MINOPPGAVEDATO, MAXOPPGAVEDATO);
 
-                [](auto& x){
-                    add(x.oppgaver, Oppgave{
-                        lesString("Beskrivelse(max 80 tegn)"),
-                        les("Beregnet tid: ", MINOPPGAVETID, MAXOPPGAVETID)
-                    });
-                },
+        findThenElse(datoene,
+            [lovligDato](const auto& x) { return x.dato == lovligDato; },
 
-                []() { std::cout << "Dato finnes ikke...\n"; }
-            );
-        } break;
+            [](auto& x){
+                add(x.oppgaver, Oppgave{
+                    lesString("Beskrivelse(max 80 tegn)"),
+                    les("Beregnet tid: ", MINOPPGAVETID, MAXOPPGAVETID)
+                });
+            },
 
-        case SETT_FERDIG: {
-            lovligDato = les("Dato: ", MINOPPGAVEDATO, MAXOPPGAVEDATO);
+            []() { std::cout << "Dato finnes ikke...\n"; }
+        );
+    } break;
 
-            findThenElse(datoene,
-                [lovligDato](const auto& x) { return x.dato == lovligDato; },
-                [](auto& x) {
+    case SETT_FERDIG: {
+        unsigned int lovligDato = les("Dato: ", MINOPPGAVEDATO, MAXOPPGAVEDATO);
 
-                    filterThenElse(x.oppgaver,
-                        [](const auto& x){ return !x.ferdig; },
-                        [](auto& x) {
-                            displayOppgave(x);
-                            char svar = les("Onsker du å sette den til ferdig?(J/N): ");
-                            if (svar == 'J') x.ferdig = true;
-                        },
-                        [](){ std::cout << "Alle er ferdig.."; }
+        datoene = datoene
+            .map([lovligDato](auto& it){
+                bool found = false;
+                if (it.dato == lovligDato) {
+                    found = true;
+
+                    it.oppgaver = it.oppgaver
+                        .map([](auto& it) {
+                            if (!it.ferdig) {
+                                displayOppgave(x);
+                                char svar = les("Onsker du å sette den til ferdig?(J/N): ");
+                                if (svar == 'J') it.ferdig = true;
+                            }
+                        }
                     );
-                },
-                [](){ std::cout << "Dato finnes ikke...\n"; }
-            );
-        } break;
-
-        case RENS_FERDIG: {
-            datoene = filter(datoene, [](const auto& x) {
-                if (x.oppgaver.count == countIf(x.oppgaver,
-                        [](const auto& x){ return x.ferdig; })) {
-                    displayDato(x);
-                    return false;
                 }
-                return true;
-            });
-        } break;
+                if(found == false) { std::cout << "Ingen treff...\n"; };
+            }
+        );
 
-        default:  displayMenu();
-            break;
-    }
+    } break;
+
+    case RENS_FERDIG: {
+        datoene = filter(datoene, [](const auto& x) {
+            if (x.oppgaver.count == countIf(x.oppgaver,
+                    [](const auto& x){ return x.ferdig; })) {
+                displayDato(x);
+                return false;
+            }
+            return true;
+        });
+    } break;
+
+    default:  displayMenu();
+        break;
+
+    }  // End of Switch (valg)
     valg = les("\n\n\nKommando: ");
-    }
-
+    }  // End of While(valg != QUIT)
     std::cout << "\n\n";
     return 0;
 }
