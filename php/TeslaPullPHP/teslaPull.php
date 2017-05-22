@@ -93,4 +93,3 @@ function createElementWithText($doc, $parent, $tag, $text) {
 
 //fetchTeslaUrls('charger_url.xml');                        // Fetch list of urls pointing to all the charger lists
 countChargers('charger_url.xml', 'charger_count.txt');  // Each tesla location has a <adress class="vcard"> element
-

@@ -31,7 +31,16 @@ int main(void) {
     for(;;) {
         // Busy-waiting on input
         int retval;
-        while ((retval = !select(1, &app.fileDescriptorSet, NULL, NULL, NULL)));   // @doc select() - http://man7.org/linux/man-pages/man2/select.2.html;
+
+        // @brief Why use select?
+        //   Select checks if a system call will block. This makes it possible to only
+        //    do system calls when we know they will not block, even with a single threaded application.
+        //    If a lot of select calls is too expensive, we might just have a separate thread blocking.
+        //    If we use a reactive design, where we subscribe to thread-events, this will require a lot
+        //    less computation to pull off. For now I will just leave this commented out, since this app
+        //    can hapilly block for all I care... :P
+        //
+        //while ((retval = !select(1, &app.fileDescriptorSet, NULL, NULL, NULL)));   // @doc select() - http://man7.org/linux/man-pages/man2/select.2.html;
 
         if (retval == -1) {
             perror("select()...");
